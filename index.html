@@ -23,12 +23,15 @@
 							<h1>The Future We Want</h1>
 							<p class="major">Coming Soon.</p>
 							<ul class="actions stacked">
-								<li><a href="mailto:margot@thefuturewewant.co.uk" class="button big wide smooth-scroll-middle">Contact Us</a></li>
+								<li><button id="copyEmail" class="button big wide smooth-scroll-middle">Contact Us</button></li>
 							</ul>
 						</div>
 						<div class="image">
 							<img src="images/banner.jpg" alt="" />
 						</div>
+
+ 
+	
 					</section>
 		
 
@@ -40,6 +43,29 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/clipboardtext.js"></script>
+
+<script>
+  document.getElementById('copyEmail').addEventListener('click', function(){
+        var email = "margot@thefuturewewant.co.uk";
+        var tempInput = document.createElement("input");
+        tempInput.value = email;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+
+        var button = this;
+        var buttonText = button.textContent;
+
+        button.textContent = "Email address copied";
+
+        setTimeout(function(){
+            button.textContent = buttonText;
+        }, 2000);
+    });
+</script>
+
 
 	</body>
 </html>
